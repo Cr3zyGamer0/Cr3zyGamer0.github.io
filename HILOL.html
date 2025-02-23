@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weathering and Erosion Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .question p {
+            font-size: 18px;
+        }
+        .answers label {
+            display: block;
+            margin: 5px 0;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Weathering and Erosion Quiz</h1>
+        <form id="quizForm">
+            <!-- The questions will be dynamically inserted here -->
+        </form>
+
+        <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // List of all possible questions
+        const allQuestions = [
+            {
+                question: "What is weathering?",
+                answers: [
+                    "A) The breakdown of rocks by weather, plants, animals, and chemicals.",
+                    "B) The wearing away of land.",
+                    "C) The movement of material from one place to another.",
+                    "D) The process of freezing and expanding."
+                ],
+                correct: "A"
+            },
+            {
+                question: "Which of the following is NOT a type of weathering?",
+                answers: [
+                    "A) Freeze-thaw weathering",
+                    "B) Onion-skin weathering",
+                    "C) Water erosion",
+                    "D) Chemical weathering"
+                ],
+                correct: "C"
+            },
+            {
+                question: "How does freeze-thaw weathering occur?",
+                answers: [
+                    "A) Water enters cracks, freezes, expands, and causes the rock to break.",
+                    "B) Water dissolves minerals in the rock.",
+                    "C) Animals dig into cracks, loosening the rock.",
+                    "D) Rocks expand and contract with heat and cold."
+                ],
+                correct: "A"
+            },
+            {
+                question: "What happens during onion-skin weathering?",
+                answers: [
+                    "A) Water expands cracks in rocks when frozen.",
+                    "B) Rocks weaken from repeated heating and cooling, causing layers to peel off.",
+                    "C) Animals dig and break rocks.",
+                    "D) Acid rain dissolves the rock."
+                ],
+                correct: "B"
+            },
+            {
+                question: "Which of the following best describes biological weathering?",
+                answers: [
+                    "A) Weathering caused by chemicals in rain.",
+                    "B) Rocks breaking apart from freeze-thaw cycles.",
+                    "C) The breakdown of rocks due to plants and animals.",
+                    "D) Rocks weakening from temperature changes."
+                ],
+                correct: "C"
+            },
+            {
+                question: "What is the difference between weathering and erosion?",
+                answers: [
+                    "A) Weathering involves the movement of material, while erosion is the breakdown of rocks.",
+                    "B) Erosion involves the breakdown of rocks, while weathering is the movement of material.",
+                    "C) Weathering is a process involving both plants and animals.",
+                    "D) Erosion is the removal of loosened material, while weathering is the breakdown."
+                ],
+                correct: "D"
+            },
+            {
+                question: "Which agent of erosion is responsible for shaping deserts?",
+                answers: [
+                    "A) Rivers",
+                    "B) Sea",
+                    "C) Ice",
+                    "D) Wind"
+                ],
+                correct: "D"
+            },
+            {
+                question: "What occurs during river erosion?",
+                answers: [
+                    "A) Rivers carry materials that help wear away rocks from the riverbed and banks.",
+                    "B) Waves crash against the coastline, eroding rocks.",
+                    "C) Glaciers carry stones and boulders that scrape the valley floor.",
+                    "D) Wind blows sand particles that erode rocks."
+                ],
+                correct: "A"
+            },
+            {
+                question: "Which of the following is NOT a type of erosion?",
+                answers: [
+                    "A) River erosion",
+                    "B) Sea erosion",
+                    "C) Ice erosion",
+                    "D) Earthquake erosion"
+                ],
+                correct: "D"
+            },
+            {
+                question: "What happens during sea erosion?",
+                answers: [
+                    "A) Waves hit the rocks and break them off, currents carry the rock away.",
+                    "B) Rivers move sediment and erode the sea bed.",
+                    "C) Wind carries sand and erodes the coastline.",
+                    "D) Glaciers carry ice and erode the sea floor."
+                ],
+                correct: "A"
+            },
+            {
+                question: "How do glaciers cause erosion?",
+                answers: [
+                    "A) Stones freeze onto glaciers and scrape the valley floor.",
+                    "B) Waves push ice against rocks, causing erosion.",
+                    "C) Winds blow ice particles that erode the landscape.",
+                    "D) Rivers erode the glacier by carrying water underneath."
+                ],
+                correct: "A"
+            },
+            {
+                question: "What is an example of wind erosion?",
+                answers: [
+                    "A) Sand particles being blown against rocks and eroding them.",
+                    "B) Water moving sand and eroding the shoreline.",
+                    "C) Glaciers carrying boulders that scrape the land.",
+                    "D) Water freezing and expanding in cracks."
+                ],
+                correct: "A"
+            },
+            {
+                question: "What is the primary cause of hydraulic action in river erosion?",
+                answers: [
+                    "A) The force of moving water.",
+                    "B) Water freezing in cracks.",
+                    "C) Chemical reactions in the water.",
+                    "D) Plant roots growing in rocks."
+                ],
+                correct: "A"
+            },
+            {
+                question: "What happens during abrasion in river erosion?",
+                answers: [
+                    "A) Rocks grind against the river bed and bank, deepening and widening the river.",
+                    "B) Acid in the water dissolves minerals in the rocks.",
+                    "C) Rocks are broken into smaller pieces by chemical reactions.",
+                    "D) Water pushes air into cracks, causing explosions."
+                ],
+                correct: "A"
+            },
+            {
+                question: "What is attrition in river erosion?",
+                answers: [
+                    "A) Rocks collide and break into smaller, rounded pieces.",
+                    "B) Rocks are worn away by chemical reactions.",
+                    "C) Water pushes air into cracks, causing explosions.",
+                    "D) Wind carries particles that erode the landscape."
+                ],
+                correct: "A"
+            }
+        ];
+
+        // Randomly pick 15 questions
+        function getRandomQuestions() {
+            const shuffled = allQuestions.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 15);
+        }
+
+        const selectedQuestions = getRandomQuestions();
+
+        // Render the selected questions
+        const quizForm = document.getElementById("quizForm");
+        selectedQuestions.forEach((question, index) => {
+            const questionHTML = `
+                <div class="question">
+                    <p>${index + 1}. ${question.question}</p>
+                    <div class="answers">
+                        ${question.answers.map((answer, i) => `
+                            <label><input type="radio" name="q${index}" value="${String.fromCharCode(65 + i)}"> ${answer}</label>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            quizForm.innerHTML += questionHTML;
+        });
+
+        // Check answers function
+        function checkAnswers() {
+            let score = 0;
+            selectedQuestions.forEach((question, index) => {
+                const userAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+                if (userAnswer && userAnswer.value === question.correct) {
+                    score++;
+                }
+            });
+
+            let resultMessage = `You scored ${score} out of 15.`;
+            if (score === 15) {
+                resultMessage += " Excellent work!";
+            } else if (score > 7) {
+                resultMessage += " Good job!";
+            } else {
+                resultMessage += " Keep practicing!";
+            }
+
+            document.getElementById('result').innerText = resultMessage;
+        }
+    </script>
+
+</body>
+</html>
