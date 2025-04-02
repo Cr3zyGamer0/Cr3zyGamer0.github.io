@@ -652,12 +652,60 @@ transition: transform 0.3s ease
     </section>
     <!-- Inside the #services section, before the cards-container div -->
 
-  <script>
+   <script>
     const pets = [
-        { name: "Huge Sketch Capybara", value: "6.5m-8m 🟡", demand: "6/10", img: "1279535762102026321.webp" },
-        { name: "Huge Doodle Difference Cat", value: "9.25m-11m 🟡", demand: "7/10", img: "1330908904795803709.webp" },
-        { name: "Huge Volcanic Dog", value: "7m-8.5m 🟡", demand: "6/10", img: "1325183684529229975%20(1).webp" },
-        { name: "Huge Volcanic Noobortuus", value: "9.5m-11.5m 🟡", demand: "7/10", img: "1325183686773047462%20(1).webp" }
+        { name: "Huge Sketch Capybara", value: "6M - 8M 💎", from: "Event Artist Egg", img: "1279535762102026321.webp" },
+        { name: "Huge Doodle Difference Cat", value: "9M - 11M 💎", from: "Event Artist Egg", img: "1330908904795803709.webp" },
+        { name: "Huge Volcanic Dog", value: "6M - 8M 💎", from: "Exclusive Volcanic Egg", img: "1325183684529229975%20(1).webp" },
+        { name: "Huge Volcanic Noobortuus", value: "9M - 11M 💎", from: "Exclusive Volcanic Egg", img: "1325183686773047462%20(1).webp" },
+        { name: "Huge Difference Dragon", value: "18M - 25M 💎", from: "Difference Dragon Event", img: "someImageURL" },
+        { name: "Huge Purple Fireball Monkey", value: "30M - 50M 💎", from: "Purple Fireball Egg", img: "someImageURL" },
+        { name: "Huge Survivor Darklord Dog", value: "14M - 18M 💎", from: "Huge Machine Dark Sun Egg", img: "someImageURL" },
+        { name: "Huge Darklord Cat", value: "12M - 15M 💎", from: "Huge Machine Dark Sun Egg", img: "someImageURL" },
+        { name: "Huge Love Lucki", value: "35M - 50M 💎", from: "Valentines Event 2025 Forever Pack", img: "someImageURL" },
+        { name: "Huge Pot of Bonana Cat", value: "25M - 45M 💎", from: "Quest during Darklord Event", img: "someImageURL" },
+        { name: "Huge Earth Dominus", value: "30M - 35M 💎", from: "St Patricks Forever Pack", img: "someImageURL" },
+        { name: "Huge Classic Sloth", value: "N/A 💎", from: "???", img: "someImageURL" },
+        { name: "Huge Cybertron Mech Difference Dragon", value: "65M - 80M 💎", from: "Buying for 35 Robux", img: "someImageURL" },
+        { name: "Huge Noob Agony", value: "45M - 60M 💎", from: "Buying for 23 Robux", img: "someImageURL" },
+        { name: "Huge Cyberpunk Difference Cat", value: "35M - 40M 💎", from: "Buying For 14 Robux", img: "someImageURL" },
+        { name: "Huge Knuckles", value: "N/A 💎", from: "???", img: "someImageURL" },
+        { name: "Huge Diamond Fish", value: "N/A 💎", from: "Untradable", img: "someImageURL" },
+        { name: "Huge Happy Computer Angelus", value: "73M - 86M 💎", from: "Huge Happy Machine Egg", img: "someImageURL" },
+        { name: "Huge Valkyrie Noob", value: "40M - 45M 💎", from: "Huge Happy Machine Egg", img: "someImageURL" },
+        { name: "Huge Blurred Fox", value: "12M - 15M 💎", from: "Huge Happy Machine Egg", img: "someImageURL" },
+        { name: "Huge Happy Television", value: "8M - 10M 💎", from: "Huge Happy Machine Egg", img: "someImageURL" },
+        { name: "Huge Cyborg Difference Dog", value: "6M - 7M 💎", from: "Exclusive Volcanic Egg", img: "someImageURL" },
+        { name: "Huge Shadow", value: "N/A 💎", from: "???", img: "someImageURL" },
+        { name: "Huge Neon Difference", value: "10M - 13M 💎", from: "Neon Egg", img: "someImageURL" },
+        { name: "Huge Lucy", value: "10M - 15M 💎", from: "Comet Event 2025", img: "someImageURL" },
+        { name: "Huge Dominus Phoenix", value: "22M - 30M 💎", from: "Tech Rich Egg", img: "someImageURL" },
+        { name: "Huge Glitched Agony", value: "275M 💎", from: "Active Huge Egg", img: "someImageURL" },
+        { name: "Huge Glitched Gumball Cat", value: "9M - 11M 💎", from: "Tech Rich Area", img: "someImageURL" },
+        { name: "Huge Glitched Finn Bunny", value: "11M - 13M 💎", from: "Tech Rich Area", img: "someImageURL" },
+        { name: "Huge Pibby Mouse", value: "18M - 23M 💎", from: "Multiverse Pibby Egg", img: "someImageURL" },
+        { name: "Huge Diamond Agony", value: "18M - 23M 💎", from: "Diamond Ore Egg", img: "someImageURL" },
+        { name: "Huge Surfboard Chick", value: "22M - 30M 💎", from: "Trash Sand Egg", img: "someImageURL" },
+        { name: "Huge Fighter Lucki", value: "275M 💎", from: "Active Huge Egg", img: "someImageURL" },
+        { name: "Huge Bloodmoon Wolf", value: "9M - 11M 💎", from: "Bloodmoon Egg", img: "someImageURL" },
+        { name: "Huge Bloodmoon Pegasus", value: "6M - 8M 💎", from: "Bloodmoon Egg", img: "someImageURL" },
+        { name: "Huge Noob Butterfly", value: "3M - 4M 💎", from: "Collecting all 25/25 noob dogs", img: "someImageURL" },
+        { name: "Huge Noob Kangaroo", value: "30M - 40M 💎", from: "Noob Egg", img: "someImageURL" },
+        { name: "Huge Skateboard Darklord Lucki", value: "9M - 11M 💎", from: "Skateboard Egg", img: "someImageURL" },
+        { name: "Huge Skateboard Difference Dog", value: "6M - 8M 💎", from: "Skateboard Egg", img: "someImageURL" },
+        { name: "Huge Ambush Dog", value: "9M - 11M 💎", from: "Doors Egg", img: "someImageURL" },
+        { name: "Huge Cosmic Love Axolotl", value: "100M - 120M 💎", from: "INSANE Valentines Egg", img: "someImageURL" },
+        { name: "Huge Board Builder Cat", value: "225M - 350M 💎", from: "Old Builder Event", img: "someImageURL" },
+        { name: "Huge Earth Cracker Lucki", value: "9M - 11M 💎", from: "Cracker Egg", img: "someImageURL" },
+        { name: "Huge Cold Cracker Bunny", value: "6M - 8M 💎", from: "Cracker Egg", img: "someImageURL" },
+        { name: "Huge Final Cat.exe", value: "80M - 120M 💎", from: "Old Exclusive Shop for Robux", img: "someImageURL" },
+        { name: "Huge Difference Hubert", value: "130M - 160M 💎", from: "Old Exclusive Shop for Robux", img: "someImageURL" },
+        { name: "Huge Booster Lucki", value: "700M - 1B 💎", from: "Boosting The Clover Games Discord TWICE", img: "someImageURL" },
+        { name: "Huge V Dog", value: "9M - 11M 💎", from: "Murder Drones Egg", img: "someImageURL" },
+        { name: "Huge Darklord Lucki", value: "24M - 30M 💎", from: "Non-Exclusive Darklord Egg", img: "someImageURL" },
+        { name: "Huge Cartoon Cat", value: "13M 💎", from: "Active Huge Egg", img: "someImageURL" },
+        { name: "Huge Supercar Dog", value: "275M 💎", from: "Active Huge Egg", img: "someImageURL" },
+        { name: "Huge Chroma Maskot Lucki", value: "20M - 30M 💎", from: "Chroma Maskot Egg", img: "someImageURL" }
     ];
 
     let currentPage = 0;
@@ -677,8 +725,8 @@ transition: transform 0.3s ease
                 <img src="${pet.img}" alt="${pet.name}" class="card-image">
                 <div class="card-content">
                     <h3>${pet.name}</h3>
-                    <p>Value: ${pet.value}</p>
-                    <p>Demand: ${pet.demand}</p>
+                    <p><strong>From:</strong> ${pet.from}</p>
+                    <p><strong>💎Gems:</strong> ${pet.value}</p>
                 </div>
             `;
             cardsContainer.appendChild(card);
@@ -700,6 +748,7 @@ transition: transform 0.3s ease
     });
 
     renderPets(); // Initial render
+
 
     </script>
     
