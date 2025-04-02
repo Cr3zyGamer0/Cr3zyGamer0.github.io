@@ -654,18 +654,11 @@ transition: transform 0.3s ease
 
     <script>
         const pets = [
-{ name: "Huge Sketch Capybara", value: "6.5m-8m 🟡", demand: "6/10", from: "Event Artist Egg", img: "1279535762102026321.webp" },
-{ name: "Huge Doodle Difference Cat", value: "9.25m-11m 🟡", demand: "7/10", from: "Event Artist Egg", img: "1330908904795803709.webp" },
-{ name: "Huge Volcanic Dog", value: "7m-8.5m 🟡", demand: "6/10", from: "Exclusive Volcanic Egg", img: "1325183684529229975%20(1).webp" },
-{ name: "Huge Volcanic Noobortuus", value: "9.5m-11.5m 🟡", demand: "7/10", from: "Exclusive Volcanic Egg", img: "1325183686773047462%20(1).webp" },
-            { name: "Huge Sketch Capybara", value: "6.5m-8m 🟡", demand: "6/10", from: "Event Artist Egg", img: "1279535762102026321.webp" },
-{ name: "Huge Doodle Difference Cat", value: "9.25m-11m 🟡", demand: "7/10", from: "Event Artist Egg", img: "1330908904795803709.webp" },
-{ name: "Huge Volcanic Dog", value: "7m-8.5m 🟡", demand: "6/10", from: "Exclusive Volcanic Egg", img: "1325183684529229975%20(1).webp" },
-{ name: "Huge Volcanic Noobortuus", value: "9.5m-11.5m 🟡", demand: "7/10", from: "Exclusive Volcanic Egg", img: "1325183686773047462%20(1).webp" },
-            { name: "Huge Sketch Capybara", value: "6.5m-8m 🟡", demand: "6/10", from: "Event Artist Egg", img: "1279535762102026321.webp" },
-{ name: "Huge Doodle Difference Cat", value: "9.25m-11m 🟡", demand: "7/10", from: "Event Artist Egg", img: "1330908904795803709.webp" },
-{ name: "Huge Volcanic Dog", value: "7m-8.5m 🟡", demand: "6/10", from: "Exclusive Volcanic Egg", img: "1325183684529229975%20(1).webp" },
-{ name: "Huge Volcanic Noobortuus", value: "9.5m-11.5m 🟡", demand: "7/10", from: "Exclusive Volcanic Egg", img: "1325183686773047462%20(1).webp" },
+{ name: "Huge Sketch Capybara", value: "6.5m-8m 🟡", demand: "6/10", img: "1279535762102026321.webp" },
+{ name: "Huge Doodle Difference Cat", value: "9.25m-11m 🟡", demand: "7/10", img: "1330908904795803709.webp" },
+{ name: "Huge Volcanic Dog", value: "7m-8.5m 🟡", demand: "6/10", img: "1325183684529229975%20(1).webp" },
+{ name: "Huge Volcanic Noobortuus", value: "9.5m-11.5m 🟡", demand: "7/10",img: "1325183686773047462%20(1).webp" },
+
 
     
         let currentPage = 0;
@@ -688,7 +681,6 @@ transition: transform 0.3s ease
                         <h3>${pet.name}</h3>
                         <p>Value: ${pet.value}</p>
                         <p>Demand: ${pet.demand}</p>
-                        <p>From: ${pet.from}</p>
                     </div>
                 `;
                 cardsContainer.appendChild(card);
